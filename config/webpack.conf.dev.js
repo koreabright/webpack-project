@@ -6,7 +6,8 @@ module.exports = {
 	entry: './main.js',  // 入口文件, webpack从这里开始打包
 	output: {  
 		filename: 'js/[name].[hash].bundle.js',  // 打包出来的文件的名字(可以加hash)
-		path: path.resolve(__dirname, '../web/') // 打包出来文件的路径, 新创建出的目录要用 __dirname (当前路径) 来指定
+		path: path.resolve(__dirname, '../web/'), // 打包出来文件的路径, 新创建出的目录要用 __dirname (当前路径) 来指定
+		publicPath: ''
 	},
 	module: {
 		rules: [
@@ -35,7 +36,6 @@ module.exports = {
 				target: 'http://localhost:8888'
 			}
 		},
-		hot: true,
 		open: true
 	}
 }
