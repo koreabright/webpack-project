@@ -5,14 +5,35 @@ module.exports = {
 	context: '',    // 运行环境上下文, 一般都是根目录
 	entry: './main.js',  // 入口文件, webpack从这里开始打包
 	output: {  
-		filename: 'js/[name].[hash].bundle.js',  // 打包出来的文件的名字(可以加hash)
+		filename: 'js/[name].bundle.js',  // 打包出来的文件的名字(可以加hash)
 		path: path.resolve(__dirname, '../web/'), // 打包出来文件的路径, 新创建出的目录要用 __dirname (当前路径) 来指定
 		publicPath: ''
+	},
+	resolve: {
+		extensions: ['.js', '.vue', '.json'],
+		alias: {
+			'vue': 'vue/dist/vue.js'
+		}
 	},
 	module: {
 		rules: [
 			{
-
+				test: /\.vue/,
+				use: [
+					{loader: 'vue-loader'}
+				]
+			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: 'babel-loader',
+						query: {
+							presets: ['es2015', 'react']
+						}
+					}
+				]
 			}
 		]
 	},
@@ -21,10 +42,13 @@ module.exports = {
 		new htmlWebpackPlugin({            // 该控件打包出来的 index.html 的路径会继承 output 中的 path
 			filename: 'index.html', // 指定模板名字(可以加hash)
 			template: 'src/index.html',    // 插入到哪个html中
-			inject: 'head',
+			inject: 'body',
 			// 向模板中传变量, 一下两个都是变量配置, 在模板中通过htmlWebpackPlugin.options.[变量名字]取值, 模板中ejs模板语法
-			title: 'test title',
-			data: 'test data'
+			minify: {
+				collapseInlineTagWhitespace: true, // 去掉空格
+				collapseWhitespace: true,
+				removeComments: true    // 删除备注
+			}
 		})
 	],
 	devtool: 'eval-source-map',
