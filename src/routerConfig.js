@@ -2,7 +2,8 @@ const Layout = resolve => require(['./views/Layout.vue'], resolve);
 const Test = resolve => require(['./views/Test.vue'], resolve);
 
 var routes = [
-	{ name: '云鸟物联现金贷管理', path: '/', component: Layout,
+	{ name: 'a', path: '', redirect: '/first' },
+	{ name: 'b', path: '/first', component: Layout,
 		children: [
             {
                 name: 'test', path: 'test', component: Test

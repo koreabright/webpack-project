@@ -5,9 +5,10 @@ import routerConfig from './src/routerConfig.js';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  routes: routerConfig // （缩写）相当于 routes: routes
+  routes: routerConfig, // （缩写）相当于 routes: routes
+  mode: 'history'
 })
-
+console.dir(router);
 const app = new Vue({
 	el: '#content',
 	router: router

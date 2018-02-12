@@ -7,7 +7,7 @@ module.exports = {
 	output: {  
 		filename: 'js/[name].bundle.js',  // 打包出来的文件的名字(可以加hash)
 		path: path.resolve(__dirname, '../web/'), // 打包出来文件的路径, 新创建出的目录要用 __dirname (当前路径) 来指定
-		publicPath: ''
+		publicPath: '/'
 	},
 	resolve: {
 		extensions: ['.js', '.vue', '.json'],
@@ -53,8 +53,11 @@ module.exports = {
 	],
 	devtool: 'eval-source-map',
 	devServer: {
+		contentBase: path.join(__dirname, "dist"),
 		host: '0.0.0.0',
 		port: '8000',
+		historyApiFallback: true,
+
 		proxy: {
 			'/api/': {
 				target: 'http://localhost:8888'
