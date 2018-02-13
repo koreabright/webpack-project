@@ -32,3 +32,16 @@ routerConfig 配置好之后, 在地址栏里直接输入路径, 报错找不到
 
 路由跳转之后, 找不到打包的js文件了
 --> 原因是output 里面的 publicPath, 值要为'/', 之前 publicPath 为空, 导致静态资源找不到
+
+ERROR in ./node_modules/css-loader?sourceMap!./node_modules/vue-loader/lib/style-compiler?{"vue":true,"id":"data-v-31a768e4","scoped":true,"sourceMap":true}!./node_modules/less-loader/dist/cjs.js!./node_modules/vue-loader/lib/selector.js?type=styles&index=0!./src/views/Layout.vue
+--> 安装less 和 less-loader , 并且给less文件添加less-loader
+
+mock数据找不到
+--> edp-webserver-config 中, 这条匹配放在最后面
+{
+    location: /^.*$/,
+    handler: [
+        file(),
+        proxyNoneExists()
+    ]
+}

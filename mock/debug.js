@@ -1,5 +1,6 @@
 module.exports = {
-	'first': {
-		'/api/first/test': '/mock/first/test.json'
-	}
+	'/api/sidebar': '/mock/sidebar.json',
+	// 'first': {
+		'/api/first/test': '/mock/test.json'
+	// }
 };

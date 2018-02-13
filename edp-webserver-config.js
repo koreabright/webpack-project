@@ -63,16 +63,16 @@ exports.getLocations = function () {
             ]
         },
         {
+            location: /^\/api\//,
+            handler: [
+                mockHandler(require('./mock/debug'))
+            ]
+        },
+        {
             location: /^.*$/,
             handler: [
                 file(),
                 proxyNoneExists()
-            ]
-        },
-        {
-            location: /^\/api\//,
-            handler: [
-                mockHandler(require('./mock/debug'))
             ]
         }
     ];

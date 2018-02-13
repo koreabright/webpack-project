@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.conf.dev.js --watch",
+    "server": "./node_modules/.bin/edp webserver",
     "build": "./node_modules/.bin/webpack --config ./config/webpack.conf.dev.js --watch"
   },
   "author": "",
@@ -17,7 +18,9 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.9",
     "edp": "^1.1.2",
+    "edp-webserver": "^1.2.11",
     "html-webpack-plugin": "^2.30.1",
+    "less": "^3.0.0",
     "less-loader": "^4.0.5",
     "postcss-loader": "^2.1.0",
     "sass-loader": "^6.0.6",
