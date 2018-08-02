@@ -6,8 +6,8 @@ import util from './src/common/util.js'
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-  routes: routerConfig, // （缩写）相当于 routes: routes
-  mode: 'history'
+	routes: routerConfig, // （缩写）相当于 routes: routes
+	mode: 'history'
 });
 
 util.ajax({
@@ -15,10 +15,10 @@ util.ajax({
 	type: 'get',
 	async: true,
 	success: (res) => {
-		console.log('succ:',res);
+
 	},
 	fail: (res) => {
-		console.log('fail:',res);
+		
 	}
 });
 
